@@ -264,7 +264,7 @@ async def get_up():
     """
     处理 GET 请求，可以返回内容，方便浏览器调试。
     """
-    return {"status": "ok"}
+    return {"Megurine": "Luka"}
 
 @app.head("/up", status_code=200)
 async def head_up():

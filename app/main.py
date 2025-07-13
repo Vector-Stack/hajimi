@@ -258,3 +258,10 @@ async def root(request: Request):
     return templates.TemplateResponse(
         "index.html", {"request": request, "api_url": api_url}
     )
+    
+@app.get("/up", status_code=200)
+async def health_check():
+    """
+    UptimeRobot health check endpoint.
+    """
+    return JSONResponse(content={"status": "ok"})

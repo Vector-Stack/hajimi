@@ -260,7 +260,14 @@ async def root(request: Request):
     )
     
 @app.get("/up", status_code=200)
-async def health_check():
+async def get_up():
+    """
+    UptimeRobot health check endpoint.
+    """
+    return JSONResponse(content={"status": "ok"})
+
+@app.head("/up", status_code=200)
+async def head_up():
     """
     UptimeRobot health check endpoint.
     """

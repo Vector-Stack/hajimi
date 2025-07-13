@@ -262,13 +262,15 @@ async def root(request: Request):
 @app.get("/up", status_code=200)
 async def get_up():
     """
-    UptimeRobot health check endpoint.
+    处理 GET 请求，可以返回内容，方便浏览器调试。
     """
-    return JSONResponse(content={"status": "ok"})
+    return {"status": "ok"}
 
 @app.head("/up", status_code=200)
 async def head_up():
     """
-    UptimeRobot health check endpoint.
+    专门处理 HEAD 请求。
+    它不应返回任何 body，所以我们返回一个空的 Response。
+    FastAPI 会自动处理好响应头。
     """
-    return JSONResponse(content={"status": "ok"})
+    return Response()
